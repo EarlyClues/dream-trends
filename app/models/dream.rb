@@ -14,7 +14,7 @@ class Dream < ActiveRecord::Base
     all_trends.each do |trend|
       trend_hash[trend] += 1
     end
-    [dreams, trend_hash.sort_by { |k,v| v }.reverse]
+    trend_hash.sort_by { |k,v| v }.reverse
   end
 
   def add_to_trends

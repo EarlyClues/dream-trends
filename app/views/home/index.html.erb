@@ -6,13 +6,9 @@
     <%= link_to('Log in or Signup', new_user_session_path)  %>
 <% end %>
 
-<h1> Dreams From Yesterday </h1>
-
-<ul>
-<% @dreams.each do |dream| %>
-   <li> <%= link_to dream.title, dream_path(dream) %></li>
-<% end %>
-</ul>
+<br/>
+<strong>Dreaming Trends</strong>
+<span style="font-size:256px">BETA</span>
 
 <h1>Top Trends</h1>
 
