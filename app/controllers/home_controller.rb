@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
   def index
-    yesterday = Time.now.beginning_of_day - 2.day
-    @top_trends = Dream.trends_from_date(yesterday)
+    last_week = Time.now.beginning_of_day - 7.day
+    @top_trends = Dream.trends_from_date(last_week)
   end
 end
