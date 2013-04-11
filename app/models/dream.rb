@@ -7,13 +7,14 @@ class Dream < ActiveRecord::Base
 
   def self.dreams_and_trends_from_date(date)
     dreams = Dream.where("dream_date >= ?", date)
+    return nil if dreams.nil?
 
     all_trends = dreams.map { |d| d.trends }.flatten.compact
     trend_hash = Hash.new(0)
     all_trends.each do |trend|
       trend_hash[trend] += 1
     end
-    [dreams, trend_hash.sort_by{|k,v| v}.reverse]
+    [dreams, trend_hash.sort_by { |k,v| v }.reverse]
   end
 
   def add_to_trends

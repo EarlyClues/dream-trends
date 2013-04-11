@@ -1,3 +1,11 @@
+<% if user_signed_in? %>
+    <span>Hello, <%= current_user.email %>!</span>
+    <%= link_to "Your Dreams", dreams_path %>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+<% else %>
+    <%= link_to('Log in or Signup', new_user_session_path)  %>
+<% end %>
+
 <h1> Dreams From Yesterday </h1>
 
 <ul>
