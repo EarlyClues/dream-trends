@@ -10,7 +10,9 @@
 <strong>Dreaming Trends</strong>
 <span style="font-size:256px">BETA</span>
 
-<h1>Top Trends</h1>
+<% unless @top_trends.empty? %>
+    <h1>Top Trends</h1>
+<% end%>
 
 <ul>
 <% @top_trends.each do |trend_array| %>
