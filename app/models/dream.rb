@@ -6,10 +6,10 @@ class Dream < ActiveRecord::Base
   attr_accessible :title, :body, :dream_date
 
   def self.dreams_and_trends_from_date(date)
-    dreams = Dream.where("dream_date >= ?", date)
-    return nil if dreams.nil?
+    recent_dreams = Dream.where("dream_date >= ?", date)
+    return nil if recent_dreams.nil?
 
-    all_trends = dreams.map { |d| d.trends }.flatten.compact
+    all_trends = recent_dreams.map { |d| d.trends }.flatten.compact
     trend_hash = Hash.new(0)
     all_trends.each do |trend|
       trend_hash[trend] += 1
