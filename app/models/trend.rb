@@ -4,6 +4,7 @@ class Trend < ActiveRecord::Base
   validates :word, uniqueness: true
 
   before_save :remove_from_dreams_if_excluded
+  attr_accessible :excluded
 
   def remove_from_dreams_if_excluded
     if excluded

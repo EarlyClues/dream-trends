@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<% @trend.dreams.each do |dream| %>
+    <%= link_to dream.name, dream_path(dream) %>
+<% end %>
+
+<%= link_to 'Edit', edit_trend_path(@trend) %> |
+<%= link_to 'Back', trends_path %>

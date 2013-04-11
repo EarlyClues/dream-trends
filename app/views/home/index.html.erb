@@ -1,0 +1,22 @@
+<h1> Dreams From Yesterday </h1>
+
+<ul>
+<% @dreams.each do |dream| %>
+   <li> <%= link_to dream.title, dream_path(dream) %></li>
+<% end %>
+</ul>
+
+<h1>Top Trends</h1>
+
+<ul>
+<% @top_trends.each do |trend_array| %>
+   <li>
+    <% trend = trend_array[0]%>
+    <%= trend.word %><br/>
+    <% trend.dreams.each do |dream| %>
+        <%= link_to dream.title, dream_path(dream) %>
+    <% end %>
+   </li>
+   <br/>
+<% end %>
+</ul>
