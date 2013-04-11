@@ -7,7 +7,7 @@ class Dream < ActiveRecord::Base
 
   def self.dreams_and_trends_from_date(date)
     recent_dreams = Dream.where("dream_date >= ?", date)
-    return nil if recent_dreams.nil?
+    return nil if recent_dreams.empty?
 
     all_trends = recent_dreams.map { |d| d.trends }.flatten.compact
     trend_hash = Hash.new(0)
