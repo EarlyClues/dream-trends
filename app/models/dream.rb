@@ -5,9 +5,9 @@ class Dream < ActiveRecord::Base
   after_create :add_to_trends
   attr_accessible :title, :body, :dream_date
 
-  def self.dreams_and_trends_from_date(date)
+  def self.trends_from_date(date)
     recent_dreams = Dream.where("dream_date >= ?", date)
-    return nil if recent_dreams.empty?
+    return [] if recent_dreams.empty?
 
     all_trends = recent_dreams.map { |d| d.trends }.flatten.compact
     trend_hash = Hash.new(0)
