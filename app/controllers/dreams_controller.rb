@@ -1,6 +1,6 @@
 class DreamsController < ApplicationController
 
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :only => [:new, :create, :destroy]
 
   # GET /dreams
   # GET /dreams.json
