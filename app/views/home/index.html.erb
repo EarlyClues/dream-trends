@@ -20,7 +20,7 @@
    <li>
     <% trend = trend_array[0]%>
     <%= trend.word %><br/>
-    <% trend.dreams.each do |dream| %>
+    <% trend.dreams_in_range(@last_week, Time.now.beginning_of_day).each do |dream| %>
         <%= link_to dream.title, dream_path(dream) %>
     <% end %>
    </li>
